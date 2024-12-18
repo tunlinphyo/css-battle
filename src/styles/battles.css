@@ -1,0 +1,84 @@
+#battles {
+    grid-template-columns: subgrid;
+
+    .nav {
+        grid-column: menu;
+        padding-block: 20px;
+        padding-inline-end: 20px;
+        align-self: start;
+        overflow-y: auto;
+
+        position: sticky;
+        top: 60px;
+        height: calc(100vh - 110px);
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            > li {
+                &.active {
+                    & a {
+                        border-left: 2px solid var(--primary);
+                        padding-inline-start: 10px;
+                        background-color: var(--primary-accent);
+                        color: var(--fg-primary);
+                    }
+                }
+                & a {
+                    display: flex;
+                    align-items: center;
+                    height: 32px;
+                    font-size: 16px;
+                    color: var(--fg-secondary);
+                    border-radius: 0 5px 5px 0;
+                }
+
+                &:not(.active):hover {
+                    & a {
+                        background-color: var(--hover-primary);
+                        color: var(--fg-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    .content {
+        grid-column: full-content;
+
+        .list {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2px;
+            padding-block: 20px;
+
+            & li {
+                border: 1px solid var(--border-primary);
+                background: var(--bg-primary);
+                border-radius: 1px;
+
+                & a {
+                    display: block;
+                    padding: 2px;
+
+                    & img {
+                        border-radius: 1px;
+                        aspect-ratio: 1.3 / 1;
+                        width: 100%;
+                    }
+
+                    .name {
+                        padding: 15px 10px;
+                        text-align: center;
+                    }
+                }
+
+                &:hover {
+                    background-color: var(--hover-secondary);
+                }
+            }
+        }
+    }
+}

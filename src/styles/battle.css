@@ -1,0 +1,96 @@
+#battle {
+    grid-column: body;
+    grid-template-columns: 1fr 420px;
+    grid-template-rows: 1fr;
+
+    .battle-code {
+        position: sticky;
+        top: 60px;
+        border-inline: 1px solid var(--border-primary);
+        height: calc(100vh - 110px);
+
+        .copy-button {
+            position: absolute;
+            z-index: 1;
+            background: var(--bg-primary);
+            color: var(--fg-primary);
+            top: 10px;
+            right: 10px;
+            opacity: 0;
+            border: 1px solid var(--border-primary);
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+
+            span {
+                width: 34px;
+                height: 34px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &.copied::before {
+                content: 'Copied!';
+                font-size: 14px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 34px;
+                padding-inline: 8px;
+                border-right: 1px solid var(--border-primary);
+                color: var(--fg-secondary);
+            }
+        }
+
+        &:hover {
+            .copy-button {
+                opacity: 1;
+            }
+        }
+
+        .code-view {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-primary);
+            overflow: auto;
+        }
+    }
+
+    .battle-detail {
+        padding-inline-start: 20px;
+
+        & h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 400;
+            padding-block: 10px;
+        }
+
+        .view-container {
+            overflow: auto;
+
+            & iframe {
+                border: none;
+                background-color: var(--bg-primary);
+            }
+        }
+
+        & p {
+            border-top: 1px solid var(--border-primary);
+            margin-top: 20px;
+            padding-top: 20px;
+            & a {
+                color: var(--primary);
+            }
+            & svg {
+                display: inline;
+                translate: -3px 3px;
+            }
+        }
+    }
+}
