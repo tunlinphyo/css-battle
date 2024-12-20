@@ -5,7 +5,9 @@ import { AceEditor } from "../utils/editor"
 import { Theme, ThemeToggle } from "./theme";
 
 export class BattlePage extends BaseComponent {
-    private editor: AceEditor | undefined;
+    private editor: AceEditor | undefined
+    private isCheckDiff: boolean = false
+
     constructor(id: string, battleId: string, private breadcrumbs: Breadcrumbs, private battles: Battles, private theme: ThemeToggle) {
         super('battle')
         this.render(Number(id), Number(battleId))
@@ -46,7 +48,7 @@ export class BattlePage extends BaseComponent {
         const nameEl = this.createElement('h2')
         nameEl.textContent = item.name
 
-        const [viewEl, iframeEl] = this.createView()
+        const [viewEl, iframeContainer, iframeEl] = this.createView(item.id)
         const codeViewEl = this.createCodeview(item.code, iframeEl)
 
         const codeEl = this.createElement('div', ['battle-code'])
@@ -56,6 +58,7 @@ export class BattlePage extends BaseComponent {
         codeEl.appendChild(copyBtn)
 
         const detailEl = this.createElement('div', ['battle-detail'])
+        const checkBox = this.createToggle(iframeContainer)
         const pEl = this.createElement('p')
         pEl.innerHTML = `
             To get your score, just copy the code and paste it on
@@ -65,17 +68,48 @@ export class BattlePage extends BaseComponent {
                     <path fill="var(--primary)" d="M3.771,13.38c-.198,.239-.483,.363-.771,.363-.224,0-.45-.075-.636-.229-1.502-1.24-2.363-3.068-2.363-5.015C0,4.916,2.916,2,6.5,2h5c3.584,0,6.5,2.916,6.5,6.5s-2.916,6.5-6.5,6.5c-.552,0-1-.447-1-1s.448-1,1-1c2.481,0,4.5-2.019,4.5-4.5s-2.019-4.5-4.5-4.5H6.5c-2.481,0-4.5,2.019-4.5,4.5,0,1.348,.597,2.613,1.637,3.472,.426,.352,.486,.982,.134,1.408Zm17.866-2.895c-.426-.35-1.056-.29-1.408,.135-.352,.426-.292,1.057,.134,1.408,1.04,.858,1.637,2.124,1.637,3.472,0,2.481-2.019,4.5-4.5,4.5h-5c-2.481,0-4.5-2.019-4.5-4.5s2.019-4.5,4.5-4.5c.552,0,1-.447,1-1s-.448-1-1-1c-3.584,0-6.5,2.916-6.5,6.5s2.916,6.5,6.5,6.5h5c3.584,0,6.5-2.916,6.5-6.5,0-1.946-.861-3.774-2.363-5.015Z"/>
                 </svg>.
             </a>
-            You can also make changes to the code here and see the updates right away!
-        `
+            You can also make changes to the code here and see the updates right away!`
+
+        const objectiveEl = this.createElement('p')
+        objectiveEl.textContent = `
+            My objective is to achieve a 100% match with target designs, focusing on precision,
+            clarity, and the implementation of the latest CSS patterns and best practices.`
 
         detailEl.appendChild(nameEl)
         detailEl.appendChild(viewEl)
+        detailEl.appendChild(checkBox)
         detailEl.appendChild(pEl)
+        detailEl.appendChild(objectiveEl)
 
         this.component.appendChild(codeEl)
         this.component.appendChild(detailEl)
 
         this.insertHTMLIntoIframe(iframeEl, item.code)
+    }
+
+    private createToggle(elem: HTMLElement) {
+        const containerEl = this.createElement('label', ['difference-toggle'])
+        const checkboxEl = this.createElement<HTMLInputElement>('input', [], {
+            type: 'checkbox',
+            checked: this.isCheckDiff ? 'true' : ''
+        })
+        if (this.isCheckDiff) {
+            checkboxEl.setAttribute('checked', 'checked')
+        } else {
+            checkboxEl.removeAttribute('checked')
+        }
+        const spanEl = this.createElement('span')
+        spanEl.textContent = 'Check Diffreence'
+
+        containerEl.appendChild(checkboxEl)
+        containerEl.appendChild(spanEl)
+
+        checkboxEl.addEventListener('change', () => {
+            this.isCheckDiff = checkboxEl.checked
+            elem.classList.toggle('check-difference', this.isCheckDiff)
+        })
+
+        return containerEl
     }
 
     private createCodeview(initCode: string, iframeEl: HTMLIFrameElement) {
@@ -94,13 +128,78 @@ export class BattlePage extends BaseComponent {
         return container
     }
 
-    private createView(): [HTMLElement, HTMLIFrameElement] {
+    private createView(id: number): [HTMLElement, HTMLElement, HTMLIFrameElement] {
         const containerEl = this.createElement('div', ['view-container'])
+        const relativeEl = this.createElement('div', ['relative-container'])
+        const iframeContainer = this.createElement('div', ['iframe-container'])
         const iframeEl = this.createElement<HTMLIFrameElement>('iframe', [], { width: '400px', height: '300px' })
 
-        containerEl.appendChild(iframeEl)
+        this.addCss(iframeEl)
+        iframeContainer.classList.toggle('check-difference', this.isCheckDiff)
 
-        return [containerEl, iframeEl]
+        const imgEl = this.createElement('img', ['view-image'], {
+            src: `https://cssbattle.dev/targets/${id}@2x.png`,
+            alt: ''
+        })
+
+        iframeContainer.appendChild(iframeEl)
+        relativeEl.appendChild(iframeContainer)
+        relativeEl.appendChild(imgEl)
+
+        containerEl.appendChild(relativeEl)
+
+        this.mouseEventListener(relativeEl, iframeContainer)
+
+        return [containerEl, iframeContainer, iframeEl]
+    }
+
+    private mouseEventListener(parentEl: HTMLElement, elem: HTMLElement) {
+        parentEl.addEventListener('mouseenter', () => {
+            elem.style.opacity = '0.9'
+            elem.style.transition = 'none'
+
+            const transitionEnd = () => {
+                elem.style.transition = 'none'
+                elem.removeAttribute('style')
+
+                elem.removeEventListener('transitionend', transitionEnd)
+            }
+            const mouseMove = (event: MouseEvent) => {
+                elem.style.width = `${event.offsetX}px`
+                elem.style.boxShadow = '2px 0 0 #f00'
+
+                parentEl.style.cursor = 'col-resize'
+            }
+            const mouseLeave = () => {
+                parentEl.removeAttribute('style')
+                elem.style.width = '400px'
+                elem.style.transition = '.2s'
+
+                elem.addEventListener('transitionend', transitionEnd)
+                parentEl.removeEventListener('mousemove', mouseMove)
+                parentEl.removeEventListener('mouseleave', mouseLeave)
+            }
+
+            parentEl.addEventListener('mousemove', mouseMove)
+            parentEl.addEventListener('mouseleave', mouseLeave)
+        }, false)
+    }
+
+    private addCss(iframeEl: HTMLIFrameElement) {
+        iframeEl.addEventListener('load', () => {
+            const iframeDocument = iframeEl.contentDocument || iframeEl.contentWindow?.document
+
+            if (iframeDocument) {
+                const style = iframeDocument.createElement('style')
+                style.type = 'text/css'
+                style.textContent = `body {overflow:hidden}`
+
+                const head = iframeDocument.head || iframeDocument.body
+                if (head) {
+                    head.appendChild(style)
+                }
+            }
+        })
     }
 
     private insertHTMLIntoIframe(iframe: HTMLIFrameElement, htmlContent: string): void {
@@ -131,17 +230,17 @@ export class BattlePage extends BaseComponent {
             if (!this.editor) return
             const codeToCopy = this.editor.getValue()
             navigator.clipboard.writeText(codeToCopy)
-            .then(() => {
-                console.log("Code copied to clipboard!")
-                copyButton.classList.add('copied')
-                const timeout = setTimeout(() => {
-                    clearTimeout(timeout)
-                    copyButton.classList.remove('copied')
-                }, 1000)
-            })
-            .catch((err) => {
-                console.error("Failed to copy code: ", err)
-            })
+                .then(() => {
+                    console.log("Code copied to clipboard!")
+                    copyButton.classList.add('copied')
+                    const timeout = setTimeout(() => {
+                        clearTimeout(timeout)
+                        copyButton.classList.remove('copied')
+                    }, 1000)
+                })
+                .catch((err) => {
+                    console.error("Failed to copy code: ", err)
+                })
         });
 
         return copyButton

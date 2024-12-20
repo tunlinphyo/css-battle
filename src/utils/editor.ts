@@ -36,7 +36,7 @@ export class AceEditor {
       wrap = true,
       fontFamily = "DM Mono",
       fontSize = "16px",
-      options: editorOptions = { },
+      options: editorOptions = { tabSize: 2 },
     } = options;
 
     this.editor = ace.edit(container, {

@@ -1,0 +1,54 @@
+#about {
+    grid-column: content;
+    align-items: flex-start;
+    border-inline: 1px solid var(--border-primary);
+
+    @media (max-width: 1024px) {
+        grid-column: body;
+    }
+
+    @media (max-width: 768px) {
+        border-inline: none;
+    }
+
+    & article {
+        margin-inline: auto;
+        padding-block: 20px;
+        width: calc(100% - 40px);
+        max-width: 760px;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+
+        & h1 {
+            margin: 40px 0;
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-align: center;
+        }
+        & h2 {
+            margin: 40px 0 0;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .paragraph {
+            margin-block: 20px;
+            text-align: justify;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            color: var(--fg-secondary);
+
+            & a {
+                color: var(--primary);
+            }
+
+            & svg {
+                display: inline;
+                translate: -3px 3px;
+            }
+        }
+    }
+}

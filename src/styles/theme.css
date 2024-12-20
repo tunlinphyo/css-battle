@@ -18,9 +18,10 @@
     --primary-accent: #e2f5fd;
 
     --bg-primary: var(--gray-0);
-    --bg-secondary: var(--gray-0);
+    --bg-secondary: var(--gray-100);
     --fg-primary: var(--gray-900);
-    --fg-secondary: var(--gray-700);
+    --fg-secondary: var(--gray-800);
+    --fg-disabled: var(--gray-500);
 
     --border-primary: var(--gray-500);
     --border-secondary: var(--gray-400);
@@ -28,10 +29,6 @@
     --logo: var(--primary);
     --hover-primary: var(--gray-50);
     --hover-secondary: var(--gray-100);
-
-    --theme-bg: var(--gray-0);
-    --theme-fg: var(--gray-700);
-    --theme-border: var(--primary);
 }
 
 
@@ -40,9 +37,10 @@
     --primary-accent: #235590;
 
     --bg-primary: var(--gray-1000);
-    --bg-secondary: var(--gray-900);
+    --bg-secondary: var(--gray-800);
     --fg-primary: var(--gray-0);
-    --fg-secondary: var(--gray-400);
+    --fg-secondary: var(--gray-200);
+    --fg-disabled: var(--gray-500);
 
     --border-primary: var(--gray-500);
     --border-secondary: var(--gray-600);
@@ -50,8 +48,4 @@
     --logo: var(--primary);
     --hover-primary: var(--gray-900);
     --hover-secondary: var(--gray-800);
-
-    --theme-bg: var(--gray-800);
-    --theme-fg: var(--gray-400);
-    --theme-border: var(--primary);
 }

@@ -38,6 +38,17 @@ export class BattlesPage extends BaseComponent {
         this.component.appendChild(navEl)
         this.component.appendChild(sectionEl)
 
+        this.scrollIntoView(navEl)
+    }
+
+    private scrollIntoView(navEl:HTMLElement) {
+        const artiveEl = this.getElement('.active', navEl)
+        if (artiveEl) {
+            artiveEl.scrollIntoView({
+                behavior: 'instant',
+                block: 'center'
+            })
+        }
     }
 
     private renderList(id: number, list: (Battle | undefined)[], parentEl: HTMLElement) {
@@ -63,6 +74,12 @@ export class BattlesPage extends BaseComponent {
     private renderNav(newList: List[], currentId: number): HTMLElement {
         if (!this.navListEl) {
             const navEl = this.createElement('nav', ['nav'])
+            const toggleButton = this.createElement('button', ['btn-menu'])
+            toggleButton.addEventListener('click', () => {
+                navEl.classList.toggle('show')
+            })
+            navEl.appendChild(toggleButton)
+
             const navListEl = this.createElement('ul', ['list'])
             navEl.appendChild(navListEl)
             this.navListEl = navListEl

@@ -1,4 +1,4 @@
-@layer reset, theme, icon, utils, component;
+@layer reset, theme, utils, component;
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400&display=swap');
 
@@ -6,6 +6,6 @@
 @import url(./styles/theme.css) layer(theme);
 @import url(./styles/utils.css) layer(utils);
 
-@import url(./styles/main.css) layer(component);
 @import url(./styles/battles.css) layer(component);
 @import url(./styles/battle.css) layer(component);
+@import url(./styles/about.css) layer(component);

@@ -5,6 +5,7 @@ import { Route, Router } from './utils/router'
 import { Breadcrumbs } from './pages/breadcrumbs'
 import { Battles } from './utils/battles'
 import { ThemeToggle } from './pages/theme'
+import { AboutPage } from './pages/about'
 
 document.addEventListener('DOMContentLoaded', () => {
     const breadcrumbs = new Breadcrumbs()
@@ -31,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Battles',
             callback: ({ params }) => {
                 new BattlePage(params.id, params.battleId, breadcrumbs, battles, theme)
+            }
+        },
+        {
+            path: '/about',
+            name: 'About',
+            callback: () => {
+                new AboutPage(breadcrumbs)
             }
         },
         {

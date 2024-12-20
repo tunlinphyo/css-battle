@@ -3,11 +3,27 @@
     grid-template-columns: 1fr 420px;
     grid-template-rows: 1fr;
 
+    @media (max-width: 768px) {
+        grid-column: edge;
+        grid-template-columns: subgrid;
+        grid-template-rows: [display-start] auto [display-end code-start] auto [code-end];
+    }
+
     .battle-code {
         position: sticky;
         top: 60px;
         border-inline: 1px solid var(--border-primary);
         height: calc(100vh - 110px);
+        height: calc(100dvh - 110px);
+
+        @media (max-width: 768px) {
+            grid-column: edge;
+            grid-row: code;
+            top: 100px;
+            height: calc(100vh - 150px);
+            height: calc(100dvh - 150px);
+            border: 1px solid var(--border-primary);
+        }
 
         .copy-button {
             position: absolute;
@@ -63,27 +79,140 @@
 
     .battle-detail {
         padding-inline-start: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+
+        @media (max-width: 768px) {
+            grid-column: edge;
+            grid-row: display;
+            padding-inline: 20px;
+            max-width: 100%;
+
+            display: grid;
+            grid-template-columns: subgrid;
+        }
 
         & h2 {
+            grid-column: body;
             margin: 0;
             font-size: 1.5rem;
             font-weight: 400;
-            padding-block: 10px;
+            padding-block-start: 15px;
+            margin-block-end: -10px;
+
+            @media (max-width: 768px) {
+                grid-column: body;
+            }
         }
 
         .view-container {
-            overflow: auto;
+            position: relative;
 
-            & iframe {
-                border: none;
-                background-color: var(--bg-primary);
+            @media (max-width: 768px) {
+                grid-column: body;
+            }
+            @media (max-width: 450px) {
+                margin-inline: -20px;
+                padding-inline: 20px;
+                overflow-y: auto;
+                grid-column: edge;
+            }
+
+            .relative-container {
+                width: 400px;
+                height: 300px;
+                position: relative;
+
+                .iframe-container {
+                    pointer-events: none;
+                    position: relative;
+                    inset: 0;
+                    z-index: 1;
+                    width: 400px;
+                    overflow: hidden;
+
+                    &.check-difference {
+                        mix-blend-mode: difference;
+                    }
+
+                    & iframe {
+                        border: none;
+                        background-color: #fff;
+                        overflow: hidden;
+                        display: block;
+                    }
+                }
+
+                .view-image {
+                    pointer-events: none;
+                    position: absolute;
+                    inset: 0;
+                }
+            }
+        }
+
+        .difference-toggle {
+            grid-column: body;
+            border-block: 1px solid var(--border-primary);
+            height: 48px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            accent-color: var(--primary);
+            cursor: pointer;
+            margin-block-start: -15px;
+            margin-block-end: 5px;
+
+            input {
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                background-color: var(--bg-secondary);
+                border: 2px solid var(--primary);
+                border-radius: 4px;
+                display: grid;
+                place-content: center;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 12px;
+                    height: 6px;
+                    border-left: 2px solid var(--fg-primary);
+                    border-bottom: 2px solid var(--fg-primary);
+                    rotate: -45deg;
+                    translate: 0 -1px;
+                    opacity: 0;
+                }
+
+                &:checked {
+                    background-color: var(--primary);
+
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+
             }
         }
 
         & p {
-            border-top: 1px solid var(--border-primary);
-            margin-top: 20px;
-            padding-top: 20px;
+            margin: 0;
+            padding-block: 0;
+
+            text-align: justify;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            color: var(--fg-secondary);
+
+            @media (max-width: 768px) {
+                grid-column: body;
+            }
+
             & a {
                 color: var(--primary);
             }
