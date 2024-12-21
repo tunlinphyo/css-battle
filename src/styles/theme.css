@@ -39,7 +39,7 @@
     --primary-accent: #0d283b;
 
     --bg-primary: var(--gray-1000);
-    --bg-secondary: var(--gray-800);
+    --bg-secondary: var(--gray-900);
     --fg-primary: var(--gray-0);
     --fg-secondary: var(--gray-400);
     --fg-disabled: var(--gray-600);

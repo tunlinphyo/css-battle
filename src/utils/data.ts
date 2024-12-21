@@ -2809,38 +2809,32 @@ body{
     {
       id: 67,
       name: 'Video Reel',
-      code: `<p id="a"/>
-<p id="b"/>
-<p id="c"/>
-<p id="d"/>
-<p id="e"/>
-<p id="f"/>
-<p id="g"/>
-<p id="h"/>
-<p id="i"/>
-<p id="j"/>
-<p id="k"/>
-<p id="l"/>
-<style>
-*{margin:0;background:#5DBCF9}
-p{
-  position:absolute;
+      code: `<style>
+html{
+  background:#5DBCF9;
+}
+body{
+  margin:0;
+  position:fixed;
   top:70px;
   left:55px;
   width:140px;
   height:110px;
   background:#191919;
+  box-shadow:
+    -150px -100px 0 #191919,
+    -150px 50px 0 #191919,
+    -150px 200px 0 #191919,
+    0 -150px 0 #191919,
+    0 150px 0 #191919,
+    150px -100px 0 #191919,
+    150px 50px 0 #191919,
+    150px 200px 0 #191919,
+    300px -150px 0 #191919,
+    300px 0 0 #191919,
+    300px 150px 0 #191919
+  ;
 }
-#a,#b,#c{left:-95px}
-#a,#g{top:-30px}
-#b,#h{top:120px}
-#c,#i{top:270px}
-#d,#e,#f{left:55px}
-#d,#j{top:-80px}
-#e,#k{top:70px}
-#f,#l{top:220px}
-#g,#h,#i{left:205px}
-#j,#k,#l{left:355px}
 </style>`
     },
     {
@@ -5336,8 +5330,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
-  margin:0;
   gap: 5px;
 }
 
@@ -5360,8 +5352,7 @@ body > div {
   position: relative;
   overflow: hidden;
 }
-.b::before,
-.b::after {
+.b::before {
   content: '';
   display: block;
   position: absolute;
@@ -5370,12 +5361,8 @@ body > div {
   background: #F5D6B4;
   border-radius: 50%;
   bottom: -25px;
-}
-.b::before {
   left: -145px;
-}
-.b::after {
-  right: -145px;
+  box-shadow:210px 0 0 #F5D6B4;
 }
 .f {
   width: 140px;
@@ -5401,7 +5388,7 @@ body > div {
 <div class="f"></div>
 <style>
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 html {
   display: grid;
@@ -5412,8 +5399,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
-  margin:0;
   gap: 5px;
 }
 
@@ -5466,8 +5451,7 @@ body > .h {
   position: relative;
   overflow: hidden;
 }
-.b::before,
-.b::after {
+.b::before {
   content: '';
   display: block;
   position: absolute;
@@ -5476,12 +5460,8 @@ body > .h {
   background: #62306D;
   border-radius: 50%;
   bottom: -25px;
-}
-.b::before {
   left: -140px;
-}
-.b::after {
-  right: -140px;
+  box-shadow:205px 0 0 #62306D;
 }
 .n2 {
   width: 110px;
@@ -5498,13 +5478,9 @@ body > .h {
     {
       id: 153,
       name: 'Checkers',
-      code: `<p id="a"/><p id="b"/>
-<p id="c"/><p id="d"/><p id="e"/>
-<p id="f"/><p id="g"/><p id="h"/>
-<p id="i"/><p id="j"/>
-<style>
+      code: `<style>
 *{margin:0;position:relative}
-&{
+html{
   border-inline:100px solid #E3516E;
   border-block:50px solid #E3516E;
   background-color:#E3516E;
@@ -5512,22 +5488,26 @@ body > .h {
   background-position: 0 0, 40px 40px;
   background-size: 80px 80px;
 }
-p{
+body{
   position:absolute;
+  left:50px;
+  top:10px;
   width:20px;
   height:20px;
   background:#FADE8B;
-  border-radius:50%
+  border-radius:50%;
+  box-shadow:
+    80px 0 0 0 #FADE8B,
+    -40px 40px 0 0 #FADE8B,
+    40px 40px 0 0 #FADE8B,
+    120px 40px 0 0 #FADE8B,
+    -40px 120px 0 0 #FADE8B,
+    40px 120px 0 0 #FADE8B,
+    120px 120px 0 0 #FADE8B,
+    0 160px 0 0 #FADE8B,
+    80px 160px 0 #FADE8B
+  ;
 }
-#a,#i{left:50px}
-#b,#j{right:50px}
-#a,#b{top:10px}
-#i,#j{bottom:10px}
-#c,#d,#e{top:50px}
-#f,#g,#h{bottom:50px}
-#c,#f{left:10px}
-#e,#h{right:10px}
-#d,#g{left:90px}
 </style>`
     },
     {
@@ -5589,145 +5569,86 @@ p{
     {
       id: 155,
       name: 'Snake & Ladders',
-      code: `<div class="c">
-  <div class="l l1"></div>
-  <div class="l l2"></div>
-  <div class="l l3"></div>
-</div>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background: #6592CF;
-  }
-  .c {
-    width: 160px;
-    height: 240px;
-    position: relative;
-  }
-  .c:before,
-  .c:after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 100%;
-    background: #060F55;
-    border-radius: 30px 30px 0 0;
-    position: absolute;
-  }
-  .c:after {
-    right: 0;
-  }
-  .l {
-    position: absolute;
-    width: 100%;
-    height: 30px;
-    background: #060F55;
-  }
-  .l1 {
-    top: 60px;
-  }
-  .l2 {
-    top: 120px;
-  }
-  .l3 {
-    top: 180px;
-  }
+      code: `<style>
+html{
+  background: #6592CF;
+}
+body{
+  position:fixed;
+  left:112px;
+  bottom:-30px;
+  width:30px;
+  height:262px;
+  border-radius:30px;
+  background:#060F55;
+  box-shadow:130px 0 0 #060F55;
+}
+body:before{
+  content:'';
+  position:absolute;
+  width:160px;
+  height:30px;
+  background:#060F55;
+  top:60px;
+  box-shadow:0 60px 0 #060F55, 0 120px 0 #060F55;
+}
 </style>`
     },
     {
       id: 156,
       name: 'Chinese Checkers',
-      code: `<div class="c">
-  <div class="l">
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-    <div class="b"></div>
-  </div>
-  <div class="l">
-    <div class="b"></div>
-  </div>
-</div>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    display: grid;
-    place-content: center;
-    background: #926927;
-  }
-  .c {
-    width: 200px;
-    height: 220px;
-    display: grid;
-    grid-auto-rows: repeat(9, 1fr);
-    gap: 5px;
-  }
-  .l {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  .b {
-    width: 20px;
-    height: 20px;
-    background: #F8B140;
-    border-radius: 50%;
-  }
+      code: `<style>
+html{
+  background:#926927;
+}
+body{
+  margin:0;
+  position:fixed;
+  top:40px;
+  left:190px;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:#F8B140;
+  box-shadow:
+    -15px 25px 0 0 #F8B140,
+    15px 25px 0 0 #F8B140,
+    0 50px 0 0 #F8B140,
+    -30px 50px 0 0 #F8B140,
+    -60px 50px 0 0 #F8B140,
+    -90px 50px 0 0 #F8B140,
+    30px 50px 0 0 #F8B140,
+    60px 50px 0 0 #F8B140,
+    90px 50px 0 0 #F8B140,
+    -15px 75px 0 0 #F8B140,
+    -45px 75px 0 0 #F8B140,
+    -75px 75px 0 0 #F8B140,
+    15px 75px 0 0 #F8B140,
+    45px 75px 0 0 #F8B140,
+    75px 75px 0 0 #F8B140,
+    0 100px 0 0 #F8B140,
+    -30px 100px 0 0 #F8B140,
+    -60px 100px 0 0 #F8B140,
+    30px 100px 0 0 #F8B140,
+    60px 100px 0 0 #F8B140,
+    -15px 125px 0 0 #F8B140,
+    -45px 125px 0 0 #F8B140,
+    -75px 125px 0 0 #F8B140,
+    15px 125px 0 0 #F8B140,
+    45px 125px 0 0 #F8B140,
+    75px 125px 0 0 #F8B140,
+    0 150px 0 0 #F8B140,
+    -30px 150px 0 0 #F8B140,
+    -60px 150px 0 0 #F8B140,
+    -90px 150px 0 0 #F8B140,
+    30px 150px 0 0 #F8B140,
+    60px 150px 0 0 #F8B140,
+    90px 150px 0 0 #F8B140,
+    -15px 175px 0 0 #F8B140,
+    15px 175px 0 0 #F8B140,
+    0 200px 0 0 #F8B140
+  ;
+}
 </style>`
     },
     {
@@ -5815,68 +5736,50 @@ p{
     {
       id: 158,
       name: 'Clubs',
-      code: `<div class="c">
-  <div class="f"></div>
-  <div class="r r1"></div>
-  <div class="r r2"></div>
-  <div class="r r3"></div>
-</div>
+      code: `<div class="f"></div>
+<div class="r"></div>
 <style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    display: grid;
-    place-content: center;
-    background: #4F77FF;
-  }
-  .c {
-    width: 190px;
-    height: 200px;
-    position: relative;
-  }
-  .r,
-  .f:before,
-  .f:after {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #1038BF;
-    position: absolute;
-  }
-  .r1 {
-    left: 45px;
-  }
-  .r2 {
-    top: 70px;
-  }
-  .r3 {
-    right: 0;
-    top: 70px;
-  }
-  .f {
-    width: 50px;
-    height: 60px;
-    background: #1038BF;
-    position: absolute;
-    bottom: 0;
-    left: 70px;
-    overflow: hidden;
-  }
-  .f:before,
-  .f:after {
-    content: '';
-    display: block;
-    background: #4F77FF;
-    position: absolute;
-    bottom: -10px;
-  }
-  .f:before {
-    right: 30px;
-  }
-  .f:after {
-    left: 30px;
-  }
+html{
+  background:#4F77FF;
+  display: grid;
+  place-content: center;
+}
+body{
+  width: 190px;
+  height: 200px;
+  position: relative;
+}
+.r,
+.f:before,
+.f:after {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #1038BF;
+  position: absolute;
+}
+.r {
+  left: 45px;
+  box-shadow:-45px 70px 0 #1038BF,45px 70px 0 #1038BF;
+}
+.f {
+  width: 50px;
+  height: 60px;
+  background: #1038BF;
+  position: absolute;
+  bottom: 0;
+  left: 70px;
+  overflow: hidden;
+}
+.f:before {
+  content: '';
+  display: block;
+  background: #4F77FF;
+  position: absolute;
+  bottom: -10px;
+  right: 30px;
+  box-shadow:110px 0 0 #4F77FF;
+}
 </style>`
     },
     {
@@ -6556,85 +6459,50 @@ body:after{rotate:-45deg}
     {
       id: 173,
       name: 'Hockey Mask',
-      code: `<div class="c">
-  <div class="h">
-    <div class="o b"></div>
-    <div class="o b b2"></div>
-    <div class="o b b3"></div>
-  </div>
-  <div class="e"></div>
-  <div class="m">
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-  </div>
-</div>
-<style>
-  body {
-    background: #A5B5B4;
-    display: grid;
-    place-content: center;
-  }
-  .c {
-    width: 150px;
-    height: 180px;
-    background: #FFFFFF;
-    position: relative;
-    border-radius: 50%;
-  }
-  .h {
-    position: absolute;
-    width: 40px;
-    height: 30px;
-    left: 55px;
-    top: 20px
-  }
-  .o {
-    width: 10px;
-    height: 10px;
-    background: #000000;
-    border-radius: 50%;
-  }
-  .b {
-    position: absolute;
-  }
-  .b2 {right: 0}
-  .b3 {
-    left: 15px;
-    bottom: 0;
-  }
-  .e {
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    top: 50px;
-    left: 25px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .e:before,
-  .e:after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 30px;
-    background: #000000;
-    border-radius: 50%;
-  }
-  .m {
-    width: 40px;
-    height: 50px;
-    position: absolute;
-    left: 55px;
-    bottom: 30px;
-    display: grid;
-    grid-template-columns: repeat(2, 10px);
-    grid-template-rows: repeat(3, 10px);
-    gap: 10px 20px;
-  }
+      code: `<style>
+html {
+  background: #A5B5B4;
+  display: grid;
+  place-content: center;
+}
+body {
+  width: 150px;
+  height: 180px;
+  background: #FFFFFF;
+  position: relative;
+  border-radius: 50%;
+}
+body:before {
+  content:'';
+  position: absolute;
+  left: 55px;
+  top: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background:#000;
+  box-shadow:
+    30px 0 0 #000,
+    15px 20px 0 #000,
+    0 80px 0 #000,
+    30px 80px 0 #000,
+    0 100px 0 #000,
+    30px 100px 0 #000,
+    0 120px 0 #000,
+    30px 120px 0 #000
+  ;
+}
+body:after{
+  content:'';
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow:70px 0 0 #000;
+}
 </style>`
     },
     {
@@ -8181,6 +8049,7 @@ body:after{rotate:-45deg}
   body {
     background: #6867D4;
     margin: 0;
+    height:300px;
     display: grid;
     grid-template-columns: 50px 1fr 1fr 1fr 50px;
     align-items: center;
@@ -8317,6 +8186,7 @@ body:after{rotate:-45deg}
   body {
     background: #998235;
     margin: 0;
+    height:300px;
     display: grid;
     align-items: center;
     grid-template-columns: 45px 1fr 45px;
@@ -9029,85 +8899,54 @@ body:after{rotate:-45deg}
     {
       id: 212,
       name: 'Fibonacci peacook',
-      code: `<div class="z">
-  <div class="a">
-    <div class="c">
-      <div class="e x"></div>
-      <div class="f">
-        <div class="g x"></div>
-        <div class="h">
-          <div class="i"></div>
-          <div class="j x"></div>
+      code: `<div class="a h">
+  <div class="a v b">
+    <div class="a h c">
+      <div class="a v">
+        <div class="a h d">
+          <div class="a"></div>
         </div>
       </div>
     </div>
-    <div class="d x"></div>
   </div>
-  <div class="b x"></div>
 </div>
 <style>
-  *, *:before, *:after {box-sizing: border-box}
-  body {
-    background: #FFED99;
-    display: grid;
-    place-content: center;
-  }
-  .z {
-    width: 288px;
-    height: 178px;
-    position: relative;
-    display: grid;
-    grid-template-columns: 110px 1fr;
-  }
-  .x {
-    position: relative;
-    overflow: hidden;
-    rotate: var(--r);
-  }
-  .x:before {
-    content: '';
-    display: block;
-    width: 200%;
-    height: 200%;
-    background: var(--c);
-    border-radius: 50%;
-  }
-  .a {
-    display: grid;
-    grid-template-rows: 68px 1fr;
-  }
-  .b {
-    --r: 180deg;
-    --c: #3F8627;
-  }
-  .c {
-    display: grid;
-    grid-template-columns: 68px 1fr;
-  }
-  .d {
-    --r: -90deg;
-    --c: #9F3333;
-  }
-  .e {
-    --r: 0deg;
-    --c: #F48B26;
-  }
-  .f {
-    display: grid;
-    grid-template-rows: 42px 1fr;
-  }
-  .g {
-    --r: 90deg;
-    --c: #F48B26;
-  }
-  .h {
-    display: grid;
-    grid-template-columns: 1fr 26px;
-  }
-  .j {
-    --r: 180deg;
-    --c: #000000;
-  }
+html{
+  display:grid;
+  place-content:center;
+  background:#FFED99;
+  --c:#3F8627;
+}
+body{
+  width:288px;
+  height:178px;
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows:1fr;
+}
+.h{
+  display:grid;
+  grid-template-columns: .62fr 1fr;
+  grid-template-rows: 1fr;
+}
+.a>.h{
+  rotate:180deg;
+}
+.v{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: .62fr 1fr;
+}
+.v:after{
+  rotate:90deg;
+}
+.a:after{
+  content:'';
+  background-image:radial-gradient(circle at 0 0, var(--c),70.5%,#FFED99 0);
+}
+.b{--c:#9F3333}
+.c{--c:#F48B26}
+.d{--c:#000}
 </style>`
     },
     {
@@ -9187,11 +9026,215 @@ body:after{rotate:-45deg}
   }
 </style>`
     },
-    // {
-    //   id: 211,
-    //   name: '',
-    //   code: ``
-    // },
+    {
+      id: 214,
+      name: 'Newspaper',
+      code: `<style>
+html{
+  background:#F8F8F8;
+}
+html:before{
+  content:'';
+  width:340px;
+  height:10px;
+  background:#787885;
+  position:fixed;
+  top:80px;
+  left:30px;
+  box-shadow:
+    0 30px 0 #787885,
+    0 50px 0 #787885,
+    0 70px 0 #787885,
+    0 90px 0 #787885,
+    0 110px 0 #787885,
+    0 130px 0 #787885,
+    0 150px 0 #787885,
+    0 170px 0 #787885,
+    0 190px 0 #787885
+  ;
+}
+html:after{
+  content:'';
+  width:40px;
+  height:50px;
+  background:#787885;
+  position:fixed;
+  top:20px;
+  left:30px;
+  box-shadow:
+    60px 0 0 #787885,
+    120px 0 0 #787885,
+    180px 0 0 #787885,
+    240px 0 0 #787885,
+    300px 0 0 #787885
+  ;
+}
+body{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  translate:-50% 0;
+  margin:0;
+  width:172px;
+  height:150px;
+  background:#787885;
+  outline:10px solid #F8F8F8;
+}
+</style>`
+    },
+    {
+      id: 215,
+      name: 'Staggered checks',
+      code: `<style>
+html{
+  background:#6867D4;
+}
+body{
+  position:fixed;
+  top:48px;
+  left:104px;
+  margin:0;
+  width:192px;
+  height:192px;
+  background:#000039;
+  rotate:45deg;
+}
+body:before,body:after{
+  content:'';
+  width:192px;
+  height:8px;
+  background:#6867D4;
+  position:absolute;
+  top:16px;
+  box-shadow:
+    0 32px 0 #6867D4,
+    0 72px 0 #6867D4,
+    0 120px 0 #6867D4
+  ;
+}
+body:after{
+  top:192px;
+  left:16px;
+  transform-origin:top left;
+  rotate:-90deg
+}
+</style>`
+    },
+    {
+      id: 216,
+      name: 'Pies',
+      code: `<div id="a"></div>
+<div id="b"></div>
+<style>
+body{
+  background:#37212D;
+  --a:#EE9B99;
+  --b:#76608A;
+  --c:#BCE6E9;
+}
+#a,#b{
+  margin:0;
+  position:fixed;
+  top:90px;
+  left:80px;
+  width:120px;
+  height:120px;
+  background:radial-gradient(circle at 100% 100%, var(--a), var(--a) 120px, var(--b) 0);
+  overflow:hidden;
+}
+#a:before,#b:before{
+  content:'';
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:var(--c);
+  border-radius:50%;
+  top:50%;
+}
+#b{
+  left:200px;
+  rotate:90deg;
+  --a:#BCE6E9;
+  --b:#EE9B99;
+  --c:#76608A;
+}
+</style>`
+    },
+    {
+      id: 217,
+      name: 'Maze',
+      code: `<style>
+html{
+  background:#202939;
+  display:grid;
+  place-content:center;
+}
+body{
+  width:50px;
+  height:50px;
+  background:#FFF;
+  transform: skew(0, 30deg);
+  box-shadow:
+    -55px -24px 0 #556787,
+    55px 25px 0 #556787,
+    -20px 32px 0 #FFF,
+    20px -31px 0 #FFF
+  ;
+}
+</style>`
+    },
+    {
+      id: 218,
+      name: '3D',
+      code: `<style>
+html{
+  background:#4C455B;
+  display:grid;
+  place-content:center;
+}
+html:before{
+  content:'';
+  position:fixed;
+  left:62px;
+  top:110px;
+  width:60px;
+  height:80px;
+  border-radius:12px;
+  box-sizing:border-box;
+  border:12px solid #8AB8B6;
+  border-inline-width:18px;
+  box-shadow:
+    72px 0 0 #8AB8B6,
+    144px 0 0 #8AB8B6,
+    216px 0 0 #8AB8B6
+  ;
+}
+body{
+  margin:0;
+  width:20px;
+  height:80px;
+  background:#8AB8B6;
+  position:fixed;
+  right:102px;
+  top:110px;
+}
+html:after{
+  content:'';
+  position:fixed;
+  left:80px;
+  top:122px;
+  width:24px;
+  height:56px;
+  background:#4C455B;
+  box-shadow:
+    72px 0 0 #4C455B,
+    144px 0 0 #4C455B,
+    186px 0 0 #4C455B,
+    222px 0 0 #4C455B
+  ;
+}
+</style>`
+    },
 ]
 
 export const BATTLE_LIST: List[] = [
