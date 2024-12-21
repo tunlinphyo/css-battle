@@ -4654,6 +4654,7 @@ body{
   body {
     display: grid;
     place-items: center;
+    height:284px; /* for safari */
     background-color: #F5D6B4;
   }
   .z {
@@ -4746,6 +4747,7 @@ body:after{transform:rotateY(180deg)}
   body {
     display: grid;
     place-items: center;
+    height:284px; /* for safari */
     background-color: #E3516E;
   }
   .c {
@@ -4794,6 +4796,7 @@ body:after{transform:rotateY(180deg)}
   body {
     display: grid;
     place-items: center;
+    height:284px; /* for safari */
     background-color: #998235;
   }
   .c {
@@ -4834,6 +4837,7 @@ body:after{transform:rotateY(180deg)}
   html {
     display: grid;
     place-items: center;
+    height:300px; /* for safari */
     background-color: #6592CF;
   }
   body {
@@ -4849,67 +4853,62 @@ body:after{transform:rotateY(180deg)}
     {
       id: 138,
       name: 'Lotus',
-      code: `<div class="c g l">
-  <div></div>
-  <div></div>
-</div>
-<div class="c g r">
-  <div></div>
-  <div></div>
-</div>
-<div class="c">
-  <div></div>
-  <div></div>
+      code: `<div id="a">
+  <div class="b"></div>
+  <div class="b c"></div>
+  <div class="d"></div>
+  <div class="d e"></div>
 </div>
 <style>
-  body {
-    display: grid;
-    place-items: center;
-    background-color: #926927;
-  }
-  .c {
-    position: absolute;
-    width: 60px;
-    height: 140px;
-    display: flex;
-  }
-
-  .c > div {
-    width: 30px;
-    height: 140px;
-    overflow: hidden;
-    position: relative;
-    background-blend-mode: difference;
-  }
-  .c > div:last-child {
-    transform: rotateY(180deg);
-  }
-
-  .c > div:before {
-    content: '';
-    display: block;
-    background-color: #FFFFFF;
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    top: 50%;
-    left: 1px;
-    translate: 0px -50%;
-  }
-
-  .g > div:before {
-    background-color: #6D480A;
-  }
-  .g {
-    transform-origin: bottom;
-  }
-  .l {
-    rotate: -45deg;
-  }
-  .r {
-    rotate: 45deg;
-  }
+body{
+  margin:0;
+  display:grid;
+  place-items:center;
+  height:300px;
+  background-color:#926927;
+}
+#a{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  translate:0 -30px;
+  position:relative;
+  overflow:hidden;
+}
+.d{
+  position:absolute;
+  top:30px;
+  width:100px;
+  height:200px;
+  overflow:hidden;
+}
+.e{
+  right:0;
+  transform:rotateY(180deg);
+}
+.d:before{
+  content:'';
+  display:block;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:#fff;
+  position:absolute;
+  left:71px;
+}
+.b{
+  position:absolute;
+  right:100px;
+  top:100px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:#6D480A;
+}
+.c{
+  right:initial;
+  left:100px;
+}
 </style>`
     },
     {
@@ -4919,6 +4918,7 @@ body:after{transform:rotateY(180deg)}
 <style>
 body{
   background:#E38F66;
+  height:284px; /* for safari */
   display:grid;
   place-items:center
 }
@@ -5036,15 +5036,7 @@ body{
   .b {
     transform: rotateX(180deg);
   }
-</style>
-
-<!-- OBJECTIVE -->
-<!-- Write HTML/CSS in this editor and replicate the given target image in the least code possible. What you write here, renders as it is -->
-
-<!-- SCORING -->
-<!-- The score is calculated based on the number of characters you use (this comment included :P) and how close you replicate the image. Read the FAQS (https://cssbattle.dev/faqs) for more info. -->
-
-<!-- IMPORTANT: remove the comments before submitting -->`
+</style>`
     },
     {
       id: 142,
@@ -5344,6 +5336,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content:center;
+  margin:0;
   gap: 5px;
 }
 
@@ -5418,6 +5412,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content:center;
+  margin:0;
   gap: 5px;
 }
 

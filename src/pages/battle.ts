@@ -57,6 +57,8 @@ export class BattlePage extends BaseComponent {
         codeEl.appendChild(codeViewEl)
         codeEl.appendChild(copyBtn)
 
+        const flexConteiner = this.createElement('div', ['flex-container'])
+
         const detailEl = this.createElement('div', ['battle-detail'])
         const checkBox = this.createToggle(iframeContainer)
         const pEl = this.createElement('p')
@@ -74,10 +76,13 @@ export class BattlePage extends BaseComponent {
         objectiveEl.textContent = `
             My objective is to achieve a 100% match with target designs, focusing on precision,
             clarity, and the implementation of the latest CSS patterns and best practices.`
+        
+        flexConteiner.appendChild(viewEl)
+        flexConteiner.appendChild(checkBox)
 
         detailEl.appendChild(nameEl)
-        detailEl.appendChild(viewEl)
-        detailEl.appendChild(checkBox)
+        detailEl.appendChild(flexConteiner)
+        // detailEl.appendChild(checkBox)
         detailEl.appendChild(pEl)
         detailEl.appendChild(objectiveEl)
 
@@ -88,7 +93,8 @@ export class BattlePage extends BaseComponent {
     }
 
     private createToggle(elem: HTMLElement) {
-        const containerEl = this.createElement('label', ['difference-toggle'])
+        const containerEl = this.createElement('div', ['difference-toggle'])
+        const labelEl = this.createElement('label', ['input-label'])
         const checkboxEl = this.createElement<HTMLInputElement>('input', [], {
             type: 'checkbox',
             checked: this.isCheckDiff ? 'true' : ''
@@ -101,14 +107,15 @@ export class BattlePage extends BaseComponent {
         const spanEl = this.createElement('span')
         spanEl.textContent = 'Check Diffreence'
 
-        containerEl.appendChild(checkboxEl)
-        containerEl.appendChild(spanEl)
-
         checkboxEl.addEventListener('change', () => {
             this.isCheckDiff = checkboxEl.checked
             elem.classList.toggle('check-difference', this.isCheckDiff)
         })
 
+        labelEl.appendChild(checkboxEl)
+        labelEl.appendChild(spanEl)
+
+        containerEl.appendChild(labelEl)
         return containerEl
     }
 
@@ -132,7 +139,7 @@ export class BattlePage extends BaseComponent {
         const containerEl = this.createElement('div', ['view-container'])
         const relativeEl = this.createElement('div', ['relative-container'])
         const iframeContainer = this.createElement('div', ['iframe-container'])
-        const iframeEl = this.createElement<HTMLIFrameElement>('iframe', [], { width: '400px', height: '300px' })
+        const iframeEl = this.createElement<HTMLIFrameElement>('iframe', [], { width: '400', height: '300' })
 
         this.addCss(iframeEl)
         iframeContainer.classList.toggle('check-difference', this.isCheckDiff)
@@ -165,6 +172,7 @@ export class BattlePage extends BaseComponent {
                 elem.removeEventListener('transitionend', transitionEnd)
             }
             const mouseMove = (event: MouseEvent) => {
+                elem.style.transition = 'none'
                 elem.style.width = `${event.offsetX}px`
                 elem.style.boxShadow = '2px 0 0 #f00'
 

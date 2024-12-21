@@ -29,14 +29,19 @@ export class BattlesPage extends BaseComponent {
             }
         ])
 
+        const navLayer = this.createElement('div', ['nav-layer'])
         const navEl = this.renderNav(this.battles.list(), id)
-
         const sectionEl = this.createElement('section', ['content'])
 
         this.renderList(id, battle.items, sectionEl)
 
+        this.component.appendChild(navLayer)
         this.component.appendChild(navEl)
         this.component.appendChild(sectionEl)
+
+        navLayer.addEventListener('click', () => {
+            this.component.classList.remove('show')
+        })
 
         this.scrollIntoView(navEl)
     }
@@ -76,7 +81,7 @@ export class BattlesPage extends BaseComponent {
             const navEl = this.createElement('nav', ['nav'])
             const toggleButton = this.createElement('button', ['btn-menu'])
             toggleButton.addEventListener('click', () => {
-                navEl.classList.toggle('show')
+                this.component.classList.toggle('show')
             })
             navEl.appendChild(toggleButton)
 

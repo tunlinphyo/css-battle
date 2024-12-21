@@ -49,12 +49,19 @@ export class ThemeToggle extends BaseElement {
 
         this.renderToggle()
 
+        const layerEl = this.createElement('div', ['theme-layer'])
+
         if (this.currentTheme === Theme.OS) {
             this.listenToOSThemeChanges()
         }
 
+        this.component.appendChild(layerEl)
+
         this.themeBtn.addEventListener('click', () => {
-            this.listEl.classList.toggle('active')
+            this.component.classList.add('active')
+        })
+        layerEl.addEventListener('click', () => {
+            this.component.classList.remove('active')
         })
     }
 
@@ -79,7 +86,7 @@ export class ThemeToggle extends BaseElement {
 
             itemEl.addEventListener('click', () => {
                 this.setTheme(theme.value)
-                this.listEl.classList.remove('active')
+                this.component.classList.remove('active')
             })
         })
 

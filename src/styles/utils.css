@@ -111,6 +111,14 @@ header {
             display: flex;
             pointer-events: auto;
 
+            &.active {
+                .theme-select,
+                .theme-layer {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+
             .btn-theme-toggle {
                 display: flex;
                 justify-content: center;
@@ -143,8 +151,18 @@ header {
                 }
             }
 
+            .theme-layer {
+                position: fixed;
+                inset: 0;
+                opacity: 0;
+                pointer-events: none;
+                background-color: var(--layer-bg);
+                transition: opacity .3s ease;
+            }
+
             .theme-select {
                 position: absolute;
+                z-index: 2;
                 right: 0;
                 top: calc(var(--size) + 1px);
                 white-space: nowrap;
@@ -157,11 +175,6 @@ header {
                 opacity: 0;
                 pointer-events: none;
                 transition: opacity .3s ease;
-
-                &.active {
-                    opacity: 1;
-                    pointer-events: auto;
-                }
 
                 .theme-option {
                     width: 100%;

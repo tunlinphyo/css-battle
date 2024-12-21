@@ -79,15 +79,16 @@
 
     .battle-detail {
         padding-inline-start: 20px;
+        padding-block-end: 40px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        gap: 20px;
+        gap: 20px 0;
 
         @media (max-width: 768px) {
             grid-column: edge;
             grid-row: display;
-            padding-inline: 20px;
+            padding-inline: 0;
             max-width: 100%;
 
             display: grid;
@@ -107,95 +108,131 @@
             }
         }
 
-        .view-container {
-            position: relative;
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 20px;
 
             @media (max-width: 768px) {
                 grid-column: body;
             }
+
             @media (max-width: 450px) {
-                margin-inline: -20px;
-                padding-inline: 20px;
-                overflow-y: auto;
                 grid-column: edge;
-            }
-
-            .relative-container {
-                width: 400px;
-                height: 300px;
-                position: relative;
-
-                .iframe-container {
-                    pointer-events: none;
-                    position: relative;
-                    inset: 0;
-                    z-index: 1;
-                    width: 400px;
-                    overflow: hidden;
-
-                    &.check-difference {
-                        mix-blend-mode: difference;
-                    }
-
-                    & iframe {
-                        border: none;
-                        background-color: #fff;
-                        overflow: hidden;
-                        display: block;
-                    }
-                }
-
-                .view-image {
-                    pointer-events: none;
-                    position: absolute;
-                    inset: 0;
-                }
-            }
-        }
-
-        .difference-toggle {
-            grid-column: body;
-            border-block: 1px solid var(--border-primary);
-            height: 48px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 10px;
-            accent-color: var(--primary);
-            cursor: pointer;
-            margin-block-start: -15px;
-            margin-block-end: 5px;
-
-            input {
-                appearance: none;
-                width: 20px;
-                height: 20px;
-                background-color: var(--bg-secondary);
-                border: 2px solid var(--primary);
-                border-radius: 4px;
                 display: grid;
-                place-content: center;
+                grid-template-columns: subgrid;
+                gap: 5px 0;
+            }
 
-                &::before {
-                    content: '';
-                    display: block;
-                    width: 12px;
-                    height: 6px;
-                    border-left: 2px solid var(--fg-primary);
-                    border-bottom: 2px solid var(--fg-primary);
-                    rotate: -45deg;
-                    translate: 0 -1px;
-                    opacity: 0;
-                }
-
-                &:checked {
-                    background-color: var(--primary);
-
-                    &::before {
-                        opacity: 1;
+            .view-container {
+                position: relative;
+    
+                @media (max-width: 450px) {
+                    overflow-y: auto;
+                    grid-column: edge;
+                    display: flex;
+                    
+                    &::before,
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 24px;
+                        height: 300px;
+                        flex-shrink: 0;
                     }
                 }
+    
+                .relative-container {
+                    width: 400px;
+                    height: 300px;
+                    position: relative;
+    
+                    .iframe-container {
+                        pointer-events: none;
+                        position: relative;
+                        inset: 0;
+                        z-index: 1;
+                        width: 400px;
+                        height: 300px;
+                        overflow: hidden;
+    
+                        &.check-difference {
+                            mix-blend-mode: difference;
+                        }
+    
+                        & iframe {
+                            border: none;
+                            background-color: #fff;
+                            overflow: hidden;
+                            display: block;
+                        }
+                    }
+    
+                    .view-image {
+                        pointer-events: none;
+                        position: absolute;
+                        inset: 0;
+                        width: 400px;
+                        height: 300px;
+                    }
+                }
+            }
+    
+            .difference-toggle {
+                flex: 1;
+                border-block: 1px solid var(--border-primary);
+                height: 48px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                accent-color: var(--primary);
+                color: var(--fg-secondary);
 
+                @media (max-width: 450px) {
+                    grid-column: body;
+                }
+
+                .input-label {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 10px;
+                    cursor: pointer;
+                    white-space: nowrap;
+
+                    input {
+                        appearance: none;
+                        width: 20px;
+                        height: 20px;
+                        border: 2px solid var(--border-secondary);
+                        border-radius: 4px;
+                        display: grid;
+                        place-content: center;
+                        cursor: pointer;
+        
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 12px;
+                            height: 6px;
+                            border-left: 2px solid var(--bg-primary);
+                            border-bottom: 2px solid var(--bg-primary);
+                            rotate: -45deg;
+                            translate: 0 -1px;
+                            opacity: 0;
+                        }
+        
+                        &:checked {
+                            background-color: var(--primary);
+                            border: 2px solid var(--primary);
+        
+                            &::before {
+                                opacity: 1;
+                            }
+                        }
+        
+                    }
+                }
             }
         }
 
