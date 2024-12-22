@@ -9189,8 +9189,6 @@ body{
       code: `<style>
 html{
   background:#4C455B;
-  display:grid;
-  place-content:center;
 }
 html:before{
   content:'';
@@ -9200,9 +9198,7 @@ html:before{
   width:60px;
   height:80px;
   border-radius:12px;
-  box-sizing:border-box;
-  border:12px solid #8AB8B6;
-  border-inline-width:18px;
+  background:#8AB8B6;
   box-shadow:
     72px 0 0 #8AB8B6,
     144px 0 0 #8AB8B6,
