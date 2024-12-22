@@ -5750,8 +5750,7 @@ body{
   position: relative;
 }
 .r,
-.f:before,
-.f:after {
+.f:before {
   width: 100px;
   height: 100px;
   border-radius: 50%;
