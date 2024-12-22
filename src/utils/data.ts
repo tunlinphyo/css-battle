@@ -8951,78 +8951,52 @@ body{
     {
       id: 213,
       name: 'Boat',
-      code: `<div class="s">
-  <div class="e"></div>
-  <div class="e"></div>
-  <div class="e"></div>
-  <div class="e"></div>
-</div>
-<div class="b">
-  <div class="a"></div>
-  <div class="c"></div>
-</div>
-<style>
-  *, *:before, *:after {box-sizing: border-box}
-  body {
-    background: #8AB8B6;
-    margin: 0;
-  }
-  .b {
-    position: fixed;
-    top: 32px;
-    left: 100px;
-    width: 200px;
-    height: 200px;
-  }
-  .a {
-    position: absolute;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-top: 70px solid transparent;
-    border-bottom: 70px solid transparent;
-    border-left: 100px solid #4A7D7B;
-  }
-  .c {
-    width: 130px;
-    height: 60px;
-    background: #4A7D7B;
-    position: absolute;
-    bottom: 0;
-    left: 35px;
-  }
-  .c:before,
-  .c:after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    position: absolute;
-    border-top: 60px solid #4A7D7B;
-  }
-  .c:before {
-    border-left: 35px solid transparent;
-    left: -35px;
-  }
-  .c:after {
-    border-right: 35px solid transparent;
-    right: -35px;
-  }
-  .s {
-    width: 400px;
-    height: 225px;
-    position: relative;
-    background: linear-gradient(to bottom, #EEF8FF, #EEF8FF 200px, #8AB8B6 200px) ;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-  }
-  .e {
-    width: 100px;
-    height: 50px;
-    background: #EEF8FF;
-    border-radius: 50%;
-  }
+      code: `<style>
+html{
+  background: linear-gradient(to bottom,#EEF8FF,200px,#8AB8B6 200px);
+}
+html:before{
+  content:'';
+  width:100px;
+  height:50px;
+  background:#EEF8FF;
+  border-radius:50%;
+  box-shadow:
+    100px 0 0 #EEF8FF,
+    200px 0 0 #EEF8FF,
+    300px 0 0 #EEF8FF
+  ;
+  position:fixed;
+  bottom:75px;
+}
+body{
+  margin:0;
+  position:fixed;
+  top:32px;
+  left:100px;
+  width:200px;
+  height:200px;
+}
+body:before{
+  content:'';
+  position:absolute;
+  right:0;
+  width:0;
+  height:0;
+  border-top:70px solid transparent;
+  border-bottom:70px solid transparent;
+  border-left:100px solid #4A7D7B;
+}
+body:after{
+  content:'';
+  width:200px;
+  height:60px;
+  background:#4A7D7B;
+  position:absolute;
+  bottom:0;
+  left:0;
+  clip-path:polygon(0 0,100% 0,calc(100% - 35px) 100%,35px 100%);
+}
 </style>`
     },
     {
