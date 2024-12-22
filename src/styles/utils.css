@@ -33,6 +33,16 @@ body {
         display: none;
     }
 
+    @media (min-width:1600px) {
+        grid-template-columns:
+            [edge-start] minmax(20px, .2fr)
+            [body-start menu-start] minmax(180px, .25fr)
+            [menu-end content-start full-content-start]
+            1fr [content-end aside-start]
+            minmax(180px, .25fr) [body-end aside-end full-content-end]
+            minmax(20px, .2fr) [edge-end];
+    }
+
     @media (max-width: 768px) {
         grid-template-columns: [edge-start] minmax(20px, .1fr)
             [body-start content-start full-content-start]
