@@ -1,13 +1,13 @@
 export type Route = {
-    path: string
-    name: string
-    callback: (params: RouteParam) => void
+    path: string;
+    name: string;
+    callback: (params: RouteParam) => void;
 }
 
 export type RouteParam = {
-    path: string
-    params: Record<string, string>
-    query?: Record<string, string | string[]>
+    path: string;
+    params: Record<string, string>;
+    query?: Record<string, string | string[]>;
 }
 
 export class Router {
@@ -15,9 +15,6 @@ export class Router {
 
     constructor(routes: Route[]) {
         this.routes = routes
-        this.handleLinkClicks()
-        window.addEventListener('popstate', () => this.match())
-        this.match()
     }
 
     match(): void {
@@ -28,12 +25,13 @@ export class Router {
             const match = this.matchPath(route.path, currentPath, queryString)
 
             if (match) {
+                console.log(match)
                 route.callback(match)
-                return
+                return;
             }
         }
 
-        const errorRoute = this.routes.find(item => item.path === '/404')
+        const errorRoute = this.routes.find(item => item.path == '/404')
         if (errorRoute) {
             errorRoute.callback({ params: {}, path: '/404' })
         }
@@ -45,31 +43,14 @@ export class Router {
         this.routes.push(route)
     }
 
-    navigate(path: string): void {
-        history.pushState(null, '', path)
-        this.match()
-    }
-
-    private handleLinkClicks(): void {
-        document.addEventListener('click', (event) => {
-            const target = (event.target as HTMLElement).closest('a')
-            if (target && target instanceof HTMLAnchorElement) {
-                const href = target.getAttribute('href')
-                if (href && !href.startsWith('http')) {
-                    event.preventDefault()
-                    this.navigate(href)
-                }
-            }
-        })
-    }
-
     private pathToRegex(path: string): { regex: RegExp; paramNames: string[] } {
         const paramNames: string[] = []
-        const escapedPath = path.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+        const escapedPath = path.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') // Escape special characters
 
+        // Replace `:param` with regex and capture param names
         const paramPath = escapedPath.replace(/\:([a-zA-Z0-9_]+)/g, (_, paramName) => {
-            paramNames.push(paramName)
-            return '([^/]+)'
+          paramNames.push(paramName) // Collect param name
+          return '([^/]+)' // Replace with capturing group
         })
 
         const regex = new RegExp(`^${paramPath}$`)
@@ -82,9 +63,10 @@ export class Router {
 
         if (!match) return null
 
+        // Map param names to their corresponding values
         const params: Record<string, string> = {}
         paramNames.forEach((name, index) => {
-            params[name] = match[index + 1]
+          params[name] = match[index + 1] // Match groups start at index 1
         })
 
         const query = this.parseQuery(queryString)
@@ -103,6 +85,7 @@ export class Router {
                 if (!key) return
 
                 if (query[key]) {
+                    // If the key already exists, convert it to an array
                     if (Array.isArray(query[key])) {
                         (query[key] as string[]).push(value)
                     } else {
@@ -111,7 +94,7 @@ export class Router {
                 } else {
                     query[key] = value || ''
                 }
-            })
+            });
         }
 
         return query
