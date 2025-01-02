@@ -5388,7 +5388,7 @@ body > div {
 <div class="f"></div>
 <style>
 * {
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 html {
   display: grid;
@@ -7838,202 +7838,187 @@ body:after{
   <div class="b"></div>
 </div>
 <style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #131313;
-  }
-  .c {
-    width: 240px;
-    height: 190px;
-    background: #F9C96C;
-    rotate: -15deg;
-    border-radius: 130px 130px 240px 240px;
-    position: relative;
-    overflow: hidden;
-  }
-  .e {
-    position: absolute;
-    width: 175px;
-    height: 100px;
-    translate: -12.5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  .b {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 15px solid #131313;
-    border-left-color: transparent;
-    border-top-color: transparent;
-    rotate: 45deg;
-    position: relative;
-  }
-  .b:before,
-  .b:after {
-    content: '';
-    display: block;
-    width: 15px;
-    height: 15px;
-    background: #131313;
-    border-radius: 50%;
-    position: absolute;
-  }
-  .b:before {
-    left: -6px;
-    top: 40px
-  }
-  .b:after {
-    right: -5px;
-    top: -6px
-  }
-  .c:before,
-  .c:after {
-    content: '';
-    display: block;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    position: absolute;
-  }
-  .c:before {
-    background: #E89A52;
-    top: -35px;
-    right: 30px;
-  }
-  .c:after {
-    background: #F459E3;
-    top: -45px;
-    right: 70px;
-  }
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#131313
+}
+.c{
+  width:240px;
+  height:190px;
+  background:#F9C96C;
+  rotate:-15deg;
+  border-radius:130px 130px 240px 240px;
+  position:relative;
+  overflow:hidden
+}
+.c:before{
+  content:'';
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  position:absolute;
+  background:#F459E3;
+  top:-45px;
+  right:70px;
+  box-shadow:40px 10px 0 #E89A52
+}
+.e{
+  position:absolute;
+  width:175px;
+  height:100px;
+  translate:-12.5px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end
+}
+.b{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  border:15px solid #131313;
+  border-left-color:transparent;
+  border-top-color:transparent;
+  rotate:45deg;
+  position:relative
+}
+.b:before{
+  content:'';
+  width:15px;
+  height:15px;
+  background:#131313;
+  border-radius:50%;
+  position:absolute;
+  left:-6px;
+  top:40px;
+  box-shadow:46px -46px 0 #131313
+}
 </style>`
     },
     {
       id: 196,
       name: 'Tree',
-      code: `<div class="c">
-  <div class="v"></div>
-  <div class="h"></div>
-  <div class="d l l1"></div>
-  <div class="d l l2"></div>
-  <div class="d r r1"></div>
-  <div class="d r r2"></div>
-</div>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #90D3A6;
-  }
-  .c {
-    width: 200px;
-    height: 180px;
-    position: relative;
-  }
-  .v {
-    width: 200px;
-    height: 20px;
-    background: #024817;
-    border-radius: 20px;
-    position: absolute;
-    bottom: 0;
-  }
-  .h {
-    width: 20px;
-    height: 180px;
-    background: #024817;
-    border-radius: 20px;
-    position: absolute;
-    left: 90px;
-  }
-  .d {
-    width: 54px;
-    height: 20px;
-    background: #024817;
-    position: absolute;
-  }
-  .l {
-    border-radius: 20px 0 0 20px;
-    transform-origin: right bottom;
-    rotate: 30deg;
-    right: 110px;
-  }
-  .r {
-    border-radius: 0 20px 20px 0;
-    transform-origin: left bottom;
-    rotate: -30deg;
-    left: 110px;
-  }
-  .l1,.r1 {top: 56px}
-  .l2,.r2 {bottom: 54px}
+      code: `<style>
+html{background: #90D3A6}
+html:before,html:after{
+  content:'';
+  width:200px;
+  height:20px;
+  background:#024817;
+  border-radius:20px;
+  position:absolute;
+  bottom:60px;
+  left:50%;
+  translate:-50% 0;
+}
+html:after{
+  width:180px;
+  rotate:90deg;
+  bottom:140px;
+}
+body{
+  margin:0;
+  width:112px;
+  height:120px;
+  /* background:#098; */
+  position:fixed;
+  top:90px;
+  left:50%;
+  translate:-50% 0;
+  /* width: 54px;
+  height: 20px;
+  background: #024817;
+  position: absolute;
+  border-radius: 20px 0 0 20px;
+  transform-origin: right bottom;
+  rotate: 30deg;
+  right: 110px; */
+}
+body:before{
+  content:'';
+  position:absolute;
+  width: 65px;
+  height: 20px;
+  background: #024817;
+  position: absolute;
+  top:16px;
+  border-radius: 20px;
+  rotate: 30deg;
+  box-shadow:25px 44px 0 #024817;
+}
+body:after{
+  content:'';
+  position:absolute;
+  width: 65px;
+  height: 20px;
+  background: #024817;
+  position: absolute;
+  top:16px;
+  right:0;
+  border-radius: 20px;
+  rotate: -30deg;
+  box-shadow:-25px 44px 0 #024817;
+}
 </style>`
     },
     {
       id: 197,
       name: 'Crystal',
-      code: `<div class="c">
-  <div class="v"></div>
-  <div class="v v2"></div>
-  <div class="v v3"></div>
-</div>
+      code: `<div class="v"></div>
+<div class="v v2"></div>
+<div class="v v3"></div>
 <style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #5F133F;
-  }
-  .c {
-    width: 160px;
-    height: 160px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .c:after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 50px;
-    background: #F7BED9;
-    border-radius: 50%;
-    position: absolute;
-  }
-  .v {
-    position: absolute;
-    width: 50px;
-    height: 160px;
-    background: #F075B0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .v2 {rotate: 60deg}
-  .v3 {rotate: -60deg}
-  .v:before,
-  .v:after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-  }
-  .v:before {
-    border-bottom: 30px solid #F7BED9;
-    translate: 0 -30px
-  }
-  .v:after {
-    border-top: 30px solid #F7BED9;
-    translate: 0 30px
-  }
+html{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#5F133F
+}
+body{
+  margin:0;
+  width:160px;
+  height:160px;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center
+}
+body:after{
+  content:'';
+  display:block;
+  width:50px;
+  height:50px;
+  background:#F7BED9;
+  border-radius:50%;
+  position:absolute
+}
+.v{
+  position:absolute;
+  width:50px;
+  height:160px;
+  background:#F075B0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between
+}
+.v2{rotate:60deg}
+.v3{rotate:-60deg}
+.v:before,.v:after{
+  content:'';
+  width:0;
+  height:0;
+  border-left:25px solid transparent;
+  border-right:25px solid transparent
+}
+.v:before{
+  border-bottom:30px solid #F7BED9;
+  translate:0 -30px
+}
+.v:after{
+  border-top:30px solid #F7BED9;
+  translate:0 30px
+}
 </style>`
     },
     {
