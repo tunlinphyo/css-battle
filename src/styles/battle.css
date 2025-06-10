@@ -126,12 +126,12 @@
 
             .view-container {
                 position: relative;
-    
+
                 @media (max-width: 450px) {
                     overflow-y: auto;
                     grid-column: edge;
                     display: flex;
-                    
+
                     &::before,
                     &::after {
                         content: '';
@@ -141,12 +141,12 @@
                         flex-shrink: 0;
                     }
                 }
-    
+
                 .relative-container {
                     width: 400px;
                     height: 300px;
                     position: relative;
-    
+
                     .iframe-container {
                         pointer-events: none;
                         position: relative;
@@ -155,11 +155,11 @@
                         width: 400px;
                         height: 300px;
                         overflow: hidden;
-    
+
                         &.check-difference {
                             mix-blend-mode: difference;
                         }
-    
+
                         & iframe {
                             border: none;
                             background-color: #fff;
@@ -167,7 +167,7 @@
                             display: block;
                         }
                     }
-    
+
                     .view-image {
                         pointer-events: none;
                         position: absolute;
@@ -175,7 +175,7 @@
                     }
                 }
             }
-    
+
             .difference-toggle {
                 flex: 1;
                 border-block: 1px solid var(--border-primary);
@@ -207,7 +207,7 @@
                         display: grid;
                         place-content: center;
                         cursor: pointer;
-        
+
                         &::before {
                             content: '';
                             display: block;
@@ -219,16 +219,16 @@
                             translate: 0 -1px;
                             opacity: 0;
                         }
-        
+
                         &:checked {
                             background-color: var(--primary);
                             border: 2px solid var(--primary);
-        
+
                             &::before {
                                 opacity: 1;
                             }
                         }
-        
+
                     }
                 }
             }

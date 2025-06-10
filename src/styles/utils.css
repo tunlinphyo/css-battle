@@ -75,6 +75,7 @@ body {
 }
 
 header {
+    view-transition-name: pageHeader;
     grid-column: edge;
     display: grid;
     grid-template-columns: subgrid;
@@ -313,6 +314,7 @@ main {
 }
 
 footer {
+    view-transition-name: pageFooter;
     grid-column: edge;
     display: grid;
     grid-template-columns: subgrid;

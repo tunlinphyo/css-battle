@@ -47,6 +47,7 @@ export class BattlePage extends BaseComponent {
 
         const nameEl = this.createElement('h2')
         nameEl.textContent = item.name
+        nameEl.style.viewTransitionName = `battleName-${item.id}`
 
         const [viewEl, iframeContainer, iframeEl] = this.createView(item.id)
         const codeViewEl = this.createCodeview(item.code, iframeEl)
@@ -76,7 +77,7 @@ export class BattlePage extends BaseComponent {
         objectiveEl.textContent = `
             My objective is to achieve a 100% match with target designs, focusing on precision,
             clarity, and the implementation of the latest CSS patterns and best practices.`
-        
+
         flexConteiner.appendChild(viewEl)
         flexConteiner.appendChild(checkBox)
 
@@ -148,6 +149,8 @@ export class BattlePage extends BaseComponent {
             src: `https://cssbattle.dev/targets/${id}@2x.png`,
             alt: ''
         })
+
+        containerEl.style.viewTransitionName = `battleImage-${id}`
 
         iframeContainer.appendChild(iframeEl)
         relativeEl.appendChild(iframeContainer)

@@ -65,10 +65,19 @@ export class BattlesPage extends BaseComponent {
             const cardEl = this.createElement('a', ['card'], { href: `/battles/${id}/${item.id}` })
 
             // /battles/${item.id}.png
-            cardEl.innerHTML = `
-                <img src="https://cssbattle.dev/targets/${item.id}.png" alt="Image of ${item.name}"/>
-                <div class="name">${item.name}</div>
-            `
+            const imgEl = this.createElement<HTMLImageElement>('img')
+            const nameEl = this.createElement('div')
+
+            imgEl.src = `https://cssbattle.dev/targets/${item.id}.png`
+            imgEl.setAttribute('alt', `Image of ${item.name}`)
+            imgEl.style.viewTransitionName = `battleImage-${item.id}`
+
+            nameEl.classList.add('name')
+            nameEl.textContent = `${item.name}`
+            nameEl.style.viewTransitionName = `battleName-${item.id}`
+
+            cardEl.appendChild(imgEl)
+            cardEl.appendChild(nameEl)
 
             itemEl.appendChild(cardEl)
             listEl.appendChild(itemEl)
@@ -143,6 +152,10 @@ export class BattlesPage extends BaseComponent {
 
         const aEl = this.createElement('a', [], { href: `/battles/${item.id}` })
         aEl.textContent = item.name
+
+        aEl.addEventListener('click', (e: Event) => {
+            console.log(e)
+        })
 
         itemEl.appendChild(aEl)
         return itemEl

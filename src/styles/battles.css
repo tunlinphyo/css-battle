@@ -8,7 +8,7 @@
         }
         .nav {
             translate: 0 0;
-            
+
             .btn-menu {
                 &::before {
                     translate: 0 0;

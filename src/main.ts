@@ -17,28 +17,36 @@ document.addEventListener('DOMContentLoaded', () => {
             path: '/',
             name: 'Home',
             callback: () => {
-                new BattlesPage('1', breadcrumbs, battles)
+                withViewTransition(() => {
+                    new BattlesPage('1', breadcrumbs, battles)
+                })
             }
         },
         {
             path: '/battles/:id',
             name: 'Battles',
             callback: ({ params }) => {
-                new BattlesPage(params.id, breadcrumbs, battles)
+                withViewTransition(() => {
+                    new BattlesPage(params.id, breadcrumbs, battles)
+                })
             }
         },
         {
             path: '/battles/:id/:battleId',
             name: 'Battles',
             callback: ({ params }) => {
-                new BattlePage(params.id, params.battleId, breadcrumbs, battles, theme)
+                withViewTransition(() => {
+                    new BattlePage(params.id, params.battleId, breadcrumbs, battles, theme)
+                })
             }
         },
         {
             path: '/about',
             name: 'About',
             callback: () => {
-                new AboutPage(breadcrumbs)
+                withViewTransition(() => {
+                    new AboutPage(breadcrumbs)
+                })
             }
         },
         {
@@ -53,3 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const router = new Router(routes)
     router.match()
 })
+
+function withViewTransition(callback: () => void) {
+    if (!document.startViewTransition) {
+        return callback()
+    }
+    document.startViewTransition(callback)
+}
