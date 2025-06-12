@@ -9189,6 +9189,751 @@ html:after{
 }
 </style>`
     },
+    {
+      id: 219,
+      name: 'Code Pen',
+      code: `<div class="a">
+  <div class="b"></div>
+  <div class="b c"></div>
+</div>
+<div class="d"></div>
+<style>
+* {box-sizing:border-box;}
+body{
+  background:#101724;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.a{
+  width:0px;
+  height:0px;
+  background:#fff;
+  position:relative;
+  transform: rotate(-35deg);
+}
+.b{
+  position:absolute;
+  top:-90px;
+  left:-46px;
+  width:132px;
+  height:123px;
+  position:relative;
+  transform: skewX(20deg);
+  border:18px solid #fff;
+  border-block-width:16px;
+}
+.c {
+  position:absolute;
+  top: -33;
+  left:-86px;
+}
+.d {
+  position: absolute;
+  width:20px;
+  height:70px;
+  background:#fff;
+  color:#fff;
+  left:93px;
+  box-shadow: 206q 0,97px 60px,97px -60px;
+}
+</style>`
+    },
+    {
+      id: 220,
+      name: 'Building',
+      code: `<p></p>
+<style>
+*{
+ margin:0;
+}
+p{
+  position: absolute;
+  bottom:0;
+  left:-10px;
+  width:40px;
+  height:80px;
+  color:#67AED4;
+  background:#67AED4;
+  box-shadow:
+    60px 0,
+    120px 0,
+    260px 0,
+    320px 0,
+    380px 0,
+    180px 0 #0F2836,
+    200px 0 #0F2836,
+    10px -100px,
+    50px -100px,
+    80px -100px,
+    120px -100px,
+    260px -100px,
+    300px -100px,
+    340px -100px,
+    370px -100px,
+    10px -180px,
+    50px -180px,
+    90px -180px,
+    130px -180px,
+    140px -160px,
+    330px -180px,
+    290px -180px,
+    260px -180px,
+    240px -160px,
+    370px -180px,
+
+    164px -220px,
+    216px -220px,
+    330px -220px,
+    290px -220px,
+    250px -220px,
+    370px -220px,
+    10px -220px,
+    50px -220px,
+    90px -220px,
+    130px -220px,
+
+    180px -280px
+  ;
+}
+</style>`
+    },
+    {
+      id: 221,
+      name: 'Entangled',
+      code: `<div id="c">
+  <div class="a b"></div>
+  <div class="a d"></div>
+  <div class="a e"></div>
+</div>
+<style>
+body {
+  background-color: #3F4869;
+  display: grid;
+  place-content: center;
+}
+#c {
+  width: 280;
+  height: 180;
+  position: relative;
+}
+.a {
+  width: 180;
+  height: 180;
+  border-radius: 50%;
+  background: #F4DA64;
+  position: absolute;
+
+  &.d {
+    right: 0;
+    background: #E25C57;
+  }
+
+  &.e {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+  }
+}
+</style>`
+    },
+    {
+      id: 222,
+      name: 'Rocket',
+      code: `<div id="a">
+  <div class="c"></div>
+  <div class="c d"></div>
+  <div id="b"></div>
+</div>
+<style>
+body {
+  display: grid;
+  place-content: center;
+  background: #B0E1FB;
+}
+#a {
+  width: 130;
+  height: 220;
+  position: relative;
+}
+#b {
+  position: absolute;
+  width: 50;
+  height: 180;
+  background: #4B4D88;
+  border: 10px solid #B0E1FB;
+  left: 30;
+  border-radius: 50px;
+}
+.c {
+  position: absolute;
+  bottom: 90;
+  width: 130;
+  height: 60;
+  background: #4B4D88;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.d {
+  bottom: 0;
+  background: #C15965;
+}
+</style>`
+    },
+    {
+      id: 223,
+      name: 'UFO',
+      code: `<div id="a">
+  <div id="b"></div>
+  <div id="c">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<style>
+body {
+  background: #2F434E;
+  display: grid;
+  place-content: center;
+}
+#a {
+  width: 260;
+  height: 126;
+  display: grid;
+  position: relative;
+  overflow: hidden;
+}
+#b {
+  position: absolute;
+  background-color: #E25C57;
+  width: 160;
+  height: 160;
+  left: 50;
+  border-radius: 50%;
+}
+#c {
+  position: absolute;
+  background-color: #F3AC3C;
+  width: 180;
+  height: 41;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 40px 0;
+  align-items: center;
+  clip-path: polygon(50px 0%, 210px 0%, 100% 100%, 0% 100%);
+
+  & div {
+    width: 20;
+    height: 20;
+    border-radius: 50%;
+    background: #E25C57;
+  }
+}
+</style>`
+    },
+    {
+      id: 224,
+      name: 'Levelled',
+      code: `<div id="a">
+  <div id="b"></div>
+</div>
+<style>
+body {
+  background: #F8B140;
+  display: grid;
+  place-content: center;
+}
+  #a {
+    width: 150;
+    height: 150;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #fff 50%, #67AED4 50% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 15px solid #fff;
+    box-shadow: 0 0 0 30px #000;
+
+    &::before,
+    &::after,
+    #b {
+      content: "";
+      display: block;
+      flex: 1;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #67AED4;
+    }
+    #b {
+      background: #fff;
+    }
+  }
+</style>`
+    },
+    {
+      id: 225,
+      name: 'Spark',
+      code: `<div id="a"></div>
+<div id="b"></div>
+<div id="c"></div>
+<style>
+html {
+  background: #343848;
+}
+#a {
+  position: fixed;
+  left: 0;
+  top: 50;
+  width: 140;
+  height: 40;
+  background: #E25C57;
+  box-shadow: 260px 0 #E25C57;
+}
+#b {
+  position: fixed;
+  top: 50;
+  left: 180;
+  width: 40;
+  height: 40;
+  background: #F4DA64;
+  rotate: 45deg;
+  color: #F4DA64;
+  box-shadow: 28px 85px, 85px 28px
+}
+#c {
+  position: fixed;
+  left: 180;
+  bottom: 0;
+  width: 40;
+  height: 90;
+  background: #E25C57;
+}
+</style>`
+    },
+    {
+      id: 226,
+      name: 'Bond',
+      code: `<div id="a"></div>
+<style>
+html {
+  background: linear-gradient(
+    #558C90 125px,
+    #fff 125px 175px,
+    #558C90 175px 300px
+  );
+}
+#a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: flex;
+  gap: 0px;
+  &::before,
+  &::after {
+    content: "";
+    width: 50;
+    height: 50;
+    border-radius: 50%;
+    background: #325853;
+    border: 37px solid #fff;
+  }
+}
+</style>`
+    },
+    {
+      id: 227,
+      name: 'Balanced',
+      code: `<div id="a">
+  <div id="b"></div>
+</div>
+<style>
+body {
+  background: #CF6939;
+  display: grid;
+  place-content: center;
+}
+#a {
+  width: 60;
+  height: 190;
+  border-radius: 80px;
+  background: linear-gradient(#CF6939 100px, #6D8971 100px);
+  border: 40px solid #F9D081;
+  position: relative;
+  #b {
+    position: absolute;
+    width: 60;
+    height: 80;
+    top: 80;
+    left: -40;
+    background: #123747;
+    border-inline: 40px solid #CF6939;
+  }
+}
+</style>`
+    },
+    {
+      id: 228,
+      name: 'Another Tree',
+      code: `<div id="a">
+  <div id="b"></div>
+  <div id="c"></div>
+</div>
+<style>
+body {
+  background: #D2F8FF;
+  display: grid;
+  place-content: center;
+}
+#a {
+  width: 120;
+  height: 240;
+  position: relative;
+  #b {
+    width: 120;
+    height: 120;
+    border-radius: 50%;
+    background: #3F8090;
+    position: relative;
+    z-index: 1;
+    &::before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 60px;
+      background: #072949;
+      position: absolute;
+      left: 40;
+      bottom: 0;
+    }
+  }
+  #c {
+    width: 120;
+    height: 180;
+    background: #072949;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 480;
+      height: 960;
+      background: #D2F8FF;
+      position: absolute;
+      bottom: -120px;
+      border-radius: 480px;
+    }
+    &::before {
+      right: 80px;
+    }
+    &:after {
+      left: 80px;
+    }
+  }
+}
+</style>`
+    },
+    {
+      id: 229,
+      name: 'Flower',
+      code: `<div class="a"></div>
+<div class="a b"></div>
+<div id="c"></div>
+<style>
+html {
+  background: #F4DCBF;
+}
+#c {
+  position: fixed;
+  top: 135;
+  left: 185;
+  width: 30;
+  height: 30;
+  background: #D95362;
+}
+.a {
+  position: fixed;
+  top: 15;
+  left: 125;
+  width: 60;
+  height: 120;
+  border-radius: 0 60px 0 60px;
+  background: #D95362;
+  color: #D95362;
+  box-shadow: 90px 150px;
+
+  &.b {
+    left: 215;
+    transform: rotateX(180deg);
+    box-shadow: -90px -150px;
+  }
+}
+</style>`
+    },
+    {
+      id: 230,
+      name: 'Connection',
+      code: `<div id="a"></div>
+<style>
+body {
+  background: #3F4869;
+  display: grid;
+  place-content: center;
+}
+#a {
+  width: 120;
+  height: 120;
+  border-radius: 50%;
+  border: 20px solid #F4DA64;
+  border-left-color: #3F4869;
+  box-shadow:
+    inset 0 0 0 20px #3F4869,
+    inset 0 0 0 90px #F4DA64;
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50;
+    right: 60;
+    width: 100;
+    height: 20;
+    background: #F4DA64;
+  }
+  &::after {
+    width: 40;
+    right: -40px;
+  }
+}
+</style>`
+    },
+    {
+      id: 231,
+      name: 'Crosshair',
+      code: `<div id="a">
+  <div class="b"></div>
+  <div class="b"></div>
+  <div class="b"></div>
+  <div class="b"></div>
+  <div class="b"></div>
+</div>
+<style>
+body {
+  background: #2F434E;
+  display: grid;
+  place-content: center;
+}
+#a {
+  width: 230;
+  height: 230;
+  position: relative;
+}
+.b {
+  position: absolute;
+  width: 80;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 75;
+  overflow: hidden;
+  &:nth-child(2) {
+    bottom: 0;
+    rotate: 180deg;
+  }
+  &:nth-child(3) {
+    left: 0;
+    top: 75;
+    rotate: -90deg;
+  }
+  &:nth-child(4) {
+    left: 150;
+    top: 75;
+    rotate: 90deg;
+  }
+  &:nth-child(5) {
+    left: 75;
+    top: 75;
+    background: #CF6939;
+    &::before {
+      display: none;
+    }
+  }
+  &::before {
+    content: '';
+    display: block;
+    width: 60;
+    height: 60;
+    background: #F8B140;
+    position: absolute;
+    left: 10;
+  }
+}
+</style>`
+    },
+    {
+      id: 232,
+      name: 'GAAD',
+      code: `<div id="a"></div>
+<div id="b"></div>
+<div id="c"></div>
+<div id="d"></div>
+<style>
+html {
+  background: #FDFFE9;
+  body > * {
+    position: fixed;
+  }
+}
+#a {
+  top: 50;
+  left: 180;
+  width: 40;
+  height: 40;
+  border-radius: 50%;
+  background: #01385E;
+}
+#b {
+  width: 20;
+  height: 70;
+  background: #01385E;
+  color: #01385E;
+  top: 90;
+  left: 180;
+  box-shadow: 20px 0, -30px 20px;
+}
+#c {
+  top: 150;
+  left: 190;
+  width: 40;
+  height: 40;
+  border: 20px solid #01385E;
+  border-top-right-radius: 40px;
+}
+#d {
+  top: 170;
+  left: 150;
+  width: 20;
+  height: 20;
+  border-radius: 50%;
+  border: 20px solid #81CAFE;
+  background: #01385E;
+  box-shadow: 0 0 0 20px #01385E;
+}
+</style>`
+    },
+    {
+      id: 233,
+      name: 'Pendulum',
+      code: `<div id="a">
+  <div id="b"></div>
+</div>
+<div id="c"></div>
+<div id="d"></div>
+<style>
+html {
+  background: #F4DA64;
+}
+#a {
+  position: fixed;
+  bottom: -25;
+  left: 100;
+  width: 150;
+  height: 150;
+  border-radius: 50%;
+  border: 25px solid #469DBA;
+  border-left-color: #F4DA64;
+  border-bottom-color: #F4DA64;
+  rotate: -45deg;
+}
+#b {
+  width: 100;
+  height: 100;
+  border-radius: 50%;
+  border: 25px solid #469DBA;
+  border-right-color: #F4DA64;
+  border-top-color: #F4DA64;
+}
+#c {
+  position: fixed;
+  width: 100;
+  height: 50;
+  background: #469DBA;
+  bottom: 75;
+  left: 150;
+}
+#d {
+  position: fixed;
+  width: 26;
+  height: 290;
+  background: #469DBA;
+  top: 0;
+  left: 187;
+
+}
+</style>`
+    },
+    {
+      id: 234,
+      name: 'Pieces',
+      code: `<div id="a">
+  <div id="b">
+    <div id="c">
+      <div id="d"></div>
+    </div>
+  </div>
+</div>
+<style>
+body {
+  background: #1FBCB5;
+  display: grid;
+  place-content: center;
+}
+#a {
+  background: linear-gradient(
+    #1FBCB5 50%,
+    #F9F8F4 50% 100%
+  );
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    width: 80;
+    height: 80;
+    background: #074760;
+    position: absolute;
+    bottom: 0;
+  }
+  & * {
+    border: 20px solid;
+    border-right-color: #1FBCB5!important;
+    border-radius: 50%;
+  }
+  #b {
+    border-color: #F9F8F4;
+    rotate: 45deg;
+    #c {
+      border-color: #FFB43D;
+      #d {
+        width: 40;
+        height: 40;
+        border-color: #074760;
+        background: linear-gradient(
+          135deg,
+          #1FBCB5 50%,
+          #F9F8F4 50% 100%
+        );
+      }
+    }
+  }
+}
+</style>`
+    },
+    // {
+    //   id: 227,
+    //   name: 'Code',
+    //   code: ``
+    // },
 ]
 
 export const BATTLE_LIST: List[] = [
@@ -9331,5 +10076,15 @@ export const BATTLE_LIST: List[] = [
         id: 33,
         name: 'Outline',
         itemIds: [211,212,213,214,215,216,217,218]
+    },
+    {
+        id: 34,
+        name: 'Border',
+        itemIds: [219,220,221,222,223,224,225,226]
+    },
+    {
+        id: 35,
+        name: 'Color',
+        itemIds: [227,228,229,230,231,232,233,234]
     }
 ]
