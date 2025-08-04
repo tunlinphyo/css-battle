@@ -33,6 +33,7 @@ export class ThemeToggle extends BaseElement {
     constructor(selector: string = '#theme-toggle') {
         super(selector)
         this.themeBtn = this.createElement<HTMLButtonElement>('button', ['btn-theme-toggle'])
+        this.themeBtn.setAttribute('aria-label', 'Open theme list')
         this.listEl = this.createElement('ul', ['list', 'theme-select'])
         this.init()
     }

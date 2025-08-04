@@ -39,6 +39,7 @@ export class Breadcrumbs extends BaseElement {
     private createBreadcrumb(data: Breadcrumb, isRoot: boolean): HTMLElement {
         const elem = this.createElement('li', ['breadcrumb'])
         const linkEl = this.createElement('a', [], { href: data.url })
+        linkEl.setAttribute('aria-label', `Go to ${data.name}`)
 
         if (isRoot) {
             linkEl.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

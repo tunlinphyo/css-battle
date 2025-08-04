@@ -89,6 +89,7 @@ export class BattlesPage extends BaseComponent {
         if (!this.navListEl) {
             const navEl = this.createElement('nav', ['nav'])
             const toggleButton = this.createElement('button', ['btn-menu'])
+            toggleButton.setAttribute('aria-label', 'Toggle menu')
             toggleButton.addEventListener('click', () => {
                 this.component.classList.toggle('show')
             })
